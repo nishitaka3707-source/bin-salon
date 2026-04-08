@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bin | men's cut salon | 銀座</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+      background: #f8f6f2;
+      color: #1e1510;
+      line-height: 1.8;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      --dark:   #1e1510;
+      --brown:  #2c1f17;
+      --bg:     #f8f6f2;
+      --bg2:    #eeebe5;
+      --line:   #d4cec6;
+      --gold:   #9a7c5a;
+      --mid:    #5a4a3a;
+      --light:  #8a7a6a;
+    }
+
+    /* ========== NAV ========== */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(30,21,16,0.96);
+      backdrop-filter: blur(8px);
+    }
+    nav {
+      max-width: 1080px; margin: 0 auto;
+      padding: 0 32px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 1.3rem; letter-spacing: 0.25em;
+      color: #fff; font-weight: normal;
+    }
+    .nav-logo small {
+      font-size: 0.55rem; letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.5); display: block; margin-top: -2px;
+    }
+    .nav-links {
+      list-style: none; display: flex; gap: 2rem;
+      font-size: 0.72rem; letter-spacing: 0.2em;
+    }
+    .nav-links a { color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      background: var(--dark);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 80px 24px 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before, .hero::after { display: none; }
+    .hero-logo {
+      margin-bottom: 2.4rem;
+    }
+    .hero-logo-text {
+      font-size: clamp(5rem, 14vw, 10rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 0.15em;
+      line-height: 1;
+      font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+      text-transform: lowercase;
+    }
+    .hero-logo-sub {
+      font-size: clamp(0.7rem, 2vw, 1rem);
+      letter-spacing: 0.55em;
+      color: rgba(255,255,255,0.55);
+      font-family: 'Arial', sans-serif;
+      font-weight: normal;
+      margin-top: 0.5rem;
+    }
+    .hero-divider {
+      width: 40px; height: 1px;
+      background: var(--gold);
+      margin: 0 auto 2rem; opacity: 0.7;
+    }
+    .hero-catch {
+      font-size: clamp(0.85rem, 2vw, 1.05rem);
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .hero-sub {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.2em;
+      margin-bottom: 3rem;
+    }
+    .hero-cta {
+      display: inline-block;
+      padding: 0.9rem 3rem;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.75rem;
+      letter-spacing: 0.28em;
+      transition: background 0.25s, border-color 0.25s;
+      font-family: 'Arial', sans-serif;
+    }
+    .hero-cta:hover {
+      background: var(--gold); border-color: var(--gold); color: #fff;
+    }
+
+    /* ========== SECTION COMMON ========== */
+    section { padding: 96px 24px; }
+    .inner { max-width: 920px; margin: 0 auto; }
+    .sec-en {
+      font-size: 0.62rem; letter-spacing: 0.45em;
+      color: var(--gold); text-transform: uppercase;
+      font-family: 'Arial', sans-serif;
+      margin-bottom: 0.5rem;
+    }
+    .sec-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: normal; letter-spacing: 0.08em;
+      color: var(--dark); margin-bottom: 1.4rem;
+    }
+    .sec-rule {
+      width: 28px; height: 1px;
+      background: var(--gold); margin-bottom: 3rem;
+    }
+
+    /* ========== ABOUT ========== */
+    #about { background: var(--bg); }
+    .about-grid {
+      max-width: 680px;
+    }
+    .about-text p {
+      font-size: 0.92rem; color: var(--mid);
+      line-height: 2.1; margin-bottom: 1.4rem;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-tags {
+      display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem;
+    }
+    .tag {
+      font-size: 0.7rem; letter-spacing: 0.12em;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid var(--line);
+      color: var(--mid);
+      font-family: 'Arial', sans-serif;
+    }
+    .about-photo {
+      background: var(--dark);
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      position: relative;
+    }
+    .about-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.9;
+    }
+    .about-photo-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.2rem 1.4rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      font-size: 0.72rem; color: rgba(255,255,255,0.7);
+      letter-spacing: 0.12em;
+    }
+
+    /* ========== MENU ========== */
+    #menu { background: var(--dark); }
+    #menu .sec-title { color: #fff; }
+    #menu .sec-en { color: var(--gold); }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .menu-item {
+      padding: 1.8rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-right: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .menu-item:nth-child(even) { border-right: none; }
+    .menu-item:nth-last-child(-n+2) { border-bottom: none; }
+    .menu-name {
+      font-size: 0.92rem; color: #fff;
+      letter-spacing: 0.05em;
+    }
+    .menu-name small {
+      display: block; font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.06em; margin-top: 0.2rem;
+    }
+    .menu-price {
+      font-size: 1rem; color: var(--gold);
+      white-space: nowrap;
+      font-family: 'Arial', sans-serif;
+      letter-spacing: 0.04em;
+    }
+    .menu-note {
+      margin-top: 2rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.08em;
+    }
+
+    /* ========== ACCESS ========== */
+    #access { background: var(--bg2); }
+    .access-info { max-width: 600px; }
+    .access-info dl {}
+    .access-info dt {
+      font-size: 0.62rem; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--gold);
+      font-family: 'Arial', sans-serif;
+      margin-top: 2rem; margin-bottom: 0.4rem;
+    }
+    .access-info dt:first-child { margin-top: 0; }
+    .access-info dd {
+      font-size: 0.9rem; color: var(--dark); line-height: 1.85;
+    }
+    .access-info dd small {
+      display: block; font-size: 0.75rem;
+      color: var(--light); margin-top: 0.2rem;
+    }
+    .access-hours {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 0.2rem 1.2rem;
+      font-size: 0.9rem;
+    }
+    .access-hours .day { color: var(--mid); }
+    .access-hours .time { color: var(--dark); }
+    .map-wrap {
+      border: 1px solid var(--line);
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    .map-wrap iframe {
+      display: block; width: 100%; height: 400px; border: none;
+    }
+
+    /* ========== RESERVE ========== */
+    .reserve {
+      background: var(--brown);
+      padding: 88px 24px;
+      text-align: center;
+    }
+    .reserve .sec-en { color: var(--gold); }
+    .reserve .sec-title { color: #fff; }
+    .reserve .sec-rule { margin-left: auto; margin-right: auto; }
+    .reserve-lead {
+      font-size: 0.85rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 3rem;
+    }
+    .reserve-btn {
+      display: inline-flex;
+      align-items: center; gap: 0.7rem;
+      padding: 1rem 3rem;
+      background: #fff;
+      color: var(--dark);
+      font-size: 0.8rem;
+      letter-spacing: 0.22em;
+      font-family: 'Arial', sans-serif;
+      transition: background 0.25s, color 0.25s;
+    }
+    .reserve-btn:hover { background: var(--gold); color: #fff; }
+    .reserve-btn svg {
+      width: 18px; height: 18px; flex-shrink: 0;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--dark);
+      padding: 2.4rem 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-size: 1.1rem; letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.7);
+      font-family: 'Arial Black', sans-serif;
+      margin-bottom: 0.4rem;
+    }
+    .footer-copy {
+      font-size: 0.7rem; color: rgba(255,255,255,0.25);
+      letter-spacing: 0.12em;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .about-grid, .access-grid { grid-template-columns: 1fr; }
+      .about-photo { aspect-ratio: 3/2; order: -1; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .menu-item { border-right: none; }
+      .menu-item:nth-last-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .menu-item:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <nav>
+    <div class="nav-logo">
+      bin
+      <small>MEN'S CUT SALON GINZA</small>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#menu">MENU</a></li>
+      <li><a href="#access">ACCESS</a></li>
+      <li><a href="#reserve">RESERVE</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-logo">
+    <div class="hero-logo-text">bin</div>
+    <div class="hero-logo-sub">men's &nbsp; cut &nbsp; salon</div>
+  </div>
+  <div class="hero-divider"></div>
+  <p class="hero-catch">スッキリとした印象を、銀座で。</p>
+  <p class="hero-sub">GINZA &nbsp;|&nbsp; PRIVATE ROOM &nbsp;|&nbsp; MEN'S ONLY</p>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="inner">
+    <p class="sec-en">About</p>
+    <h2 class="sec-title">binについて</h2>
+    <div class="sec-rule"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          有楽町線銀座一丁目駅10番出口から徒歩3分。<br>
+          シェアサロン内にある、男性専門の美容室です。
+        </p>
+        <p>
+          お客様層は30代〜50代の男性がメイン。<br>
+          個室のシェアサロンなので、人目を気にせずゆったりとお過ごしいただけます。
+        </p>
+        <p>
+          刈り上げヘアや短髪スタイルを得意としており、スッキリとしたラインの刈り上げや細部にわたるデザインにこだわっています。お客様一人ひとりの顔型や髪質に合わせて、理想の短髪スタイルを実現します。
+        </p>
+        <p>
+          シャープで洗練された印象を作り出し、清潔感とスタイルを両立したカットを提供いたします。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="inner">
+    <p class="sec-en">Menu &amp; Price</p>
+    <h2 class="sec-title">メニュー・料金</h2>
+    <div class="sec-rule"></div>
+
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-name">カット</div>
+        <div class="menu-price">¥9,000</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-name">
+          パーマ
+          <small>カット＋トリートメント込み</small>
+        </div>
+        <div class="menu-price">¥18,000</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-name">
+          ワンメイクカラー
+          <small>白髪一色染め</small>
+        </div>
+        <div class="menu-price">¥5,000</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-name">ヘアマニュキュア</div>
+        <div class="menu-price">¥6,000</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-name">
+          ストレートパーマ
+          <small>カット＋トリートメント込み</small>
+        </div>
+        <div class="menu-price">¥20,000</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-name">頭皮トリートメント</div>
+        <div class="menu-price">¥2,000</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-name">ショートスパ</div>
+        <div class="menu-price">¥5,000</div>
+      </div>
+    </div>
+
+    <p class="menu-note">※ お支払いはクレジットカード・現金のみとなっております</p>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section id="access">
+  <div class="inner">
+    <p class="sec-en">Access</p>
+    <h2 class="sec-title">アクセス・営業時間</h2>
+    <div class="sec-rule"></div>
+    <div class="access-info">
+      <dl>
+        <dt>住所</dt>
+        <dd>
+          〒104-0061<br>
+          東京都中央区銀座1-13-1<br>
+          ヒューリック銀座一丁目ビル B1F
+          <small>有楽町線 銀座一丁目駅 10番出口 徒歩3分</small>
+        </dd>
+
+        <dd style="margin-top:1.4rem; padding:0;">
+          <div style="border:1px solid var(--line); overflow:hidden;">
+            <iframe
+              src="https://maps.google.com/maps?q=35.6739901,139.7697207&z=17&output=embed&hl=ja"
+              width="100%" height="280" style="border:0;display:block;"
+              allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </dd>
+
+        <dt>営業時間</dt>
+        <dd>
+          <div class="access-hours">
+            <span class="day">月〜金</span>
+            <span class="time">10:00 〜 20:00</span>
+            <span class="day">土日祝</span>
+            <span class="time">8:30 〜 19:00</span>
+          </div>
+        </dd>
+
+        <dt>定休日</dt>
+        <dd>水曜日</dd>
+
+
+        <dt>予約方法</dt>
+        <dd>
+          完全予約制
+          <small>Instagram DM にてご予約ください</small>
+        </dd>
+
+        <dt>Instagram</dt>
+        <dd><a href="https://www.instagram.com/bin_menscutsalon/" target="_blank"
+             style="color:var(--gold);">@bin_menscutsalon</a></dd>
+      </dl>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESERVE -->
+<div class="reserve" id="reserve">
+  <div class="inner">
+    <p class="sec-en">Reservation</p>
+    <h2 class="sec-title">ご予約・お問い合わせ</h2>
+    <div class="sec-rule"></div>
+    <p class="reserve-lead">完全予約制 ― Instagram DM にてお気軽にご連絡ください</p>
+    <a href="https://www.instagram.com/bin_menscutsalon/" target="_blank" class="reserve-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4.5"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+      Instagram で予約する
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">bin</div>
+  <p class="footer-copy">
+    © 2025 bin men's cut salon &nbsp;|&nbsp; 銀座一丁目 &nbsp;|&nbsp;
+    <a href="https://www.instagram.com/bin_menscutsalon/" target="_blank"
+       style="color:rgba(255,255,255,0.3);">@bin_menscutsalon</a>
+  </p>
+</footer>
+
+</body>
+</html>
