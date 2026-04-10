@@ -63,9 +63,7 @@
       position: relative; overflow: hidden;
     }
     .hero::before, .hero::after { display: none; }
-    .hero-logo {
-      margin-bottom: 2.4rem;
-    }
+    .hero-logo { margin-bottom: 2.4rem; }
     .hero-logo-text {
       font-size: clamp(5rem, 14vw, 10rem);
       font-weight: 900;
@@ -100,19 +98,6 @@
       letter-spacing: 0.2em;
       margin-bottom: 3rem;
     }
-    .hero-cta {
-      display: inline-block;
-      padding: 0.9rem 3rem;
-      border: 1px solid rgba(255,255,255,0.35);
-      color: rgba(255,255,255,0.85);
-      font-size: 0.75rem;
-      letter-spacing: 0.28em;
-      transition: background 0.25s, border-color 0.25s;
-      font-family: 'Arial', sans-serif;
-    }
-    .hero-cta:hover {
-      background: var(--gold); border-color: var(--gold); color: #fff;
-    }
 
     /* ========== SECTION COMMON ========== */
     section { padding: 96px 24px; }
@@ -135,41 +120,12 @@
 
     /* ========== ABOUT ========== */
     #about { background: var(--bg); }
-    .about-grid {
-      max-width: 680px;
-    }
+    .about-grid { max-width: 680px; }
     .about-text p {
       font-size: 0.92rem; color: var(--mid);
       line-height: 2.1; margin-bottom: 1.4rem;
     }
     .about-text p:last-child { margin-bottom: 0; }
-    .about-tags {
-      display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem;
-    }
-    .tag {
-      font-size: 0.7rem; letter-spacing: 0.12em;
-      padding: 0.35rem 0.9rem;
-      border: 1px solid var(--line);
-      color: var(--mid);
-      font-family: 'Arial', sans-serif;
-    }
-    .about-photo {
-      background: var(--dark);
-      aspect-ratio: 4/5;
-      overflow: hidden;
-      position: relative;
-    }
-    .about-photo img {
-      width: 100%; height: 100%;
-      object-fit: cover; opacity: 0.9;
-    }
-    .about-photo-caption {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 1.2rem 1.4rem;
-      background: linear-gradient(transparent, rgba(0,0,0,0.6));
-      font-size: 0.72rem; color: rgba(255,255,255,0.7);
-      letter-spacing: 0.12em;
-    }
 
     /* ========== MENU ========== */
     #menu { background: var(--bg); }
@@ -200,8 +156,7 @@
       letter-spacing: 0.06em;
       margin-top: 0.18rem;
     }
-    .menu-slash { display: none; }
-.menu-price {
+    .menu-price {
       font-size: 0.92rem;
       color: var(--dark);
       white-space: nowrap;
@@ -218,7 +173,6 @@
     /* ========== ACCESS ========== */
     #access { background: var(--bg2); }
     .access-info { max-width: 600px; }
-    .access-info dl {}
     .access-info dt {
       font-size: 0.62rem; letter-spacing: 0.32em;
       text-transform: uppercase; color: var(--gold);
@@ -240,14 +194,6 @@
     }
     .access-hours .day { color: var(--mid); }
     .access-hours .time { color: var(--dark); }
-    .map-wrap {
-      border: 1px solid var(--line);
-      overflow: hidden;
-      margin-top: 3rem;
-    }
-    .map-wrap iframe {
-      display: block; width: 100%; height: 400px; border: none;
-    }
 
     /* ========== RESERVE ========== */
     .reserve {
@@ -268,16 +214,16 @@
       display: inline-flex;
       align-items: center; gap: 0.7rem;
       padding: 1rem 3rem;
-      background: #fff;
-      color: var(--dark);
+      background: #06C755;
+      color: #fff;
       font-size: 0.8rem;
       letter-spacing: 0.22em;
       font-family: 'Arial', sans-serif;
-      transition: background 0.25s, color 0.25s;
+      transition: opacity 0.25s;
     }
-    .reserve-btn:hover { background: var(--gold); color: #fff; }
+    .reserve-btn:hover { opacity: 0.85; }
     .reserve-btn svg {
-      width: 18px; height: 18px; flex-shrink: 0;
+      width: 20px; height: 20px; flex-shrink: 0;
     }
 
     /* ========== FOOTER ========== */
@@ -300,8 +246,6 @@
     /* ========== RESPONSIVE ========== */
     @media (max-width: 700px) {
       .nav-links { display: none; }
-      .about-grid, .access-grid { grid-template-columns: 1fr; }
-      .about-photo { aspect-ratio: 3/2; order: -1; }
       .menu-list { max-width: 100%; }
     }
   </style>
@@ -359,7 +303,6 @@
         </p>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -373,37 +316,30 @@
     <div class="menu-list">
       <div class="menu-item">
         <div class="menu-name">カット</div>
-        <div class="menu-slash"></div>
         <div class="menu-price">¥9,000</div>
       </div>
       <div class="menu-item">
         <div class="menu-name">パーマ<small>カット＋トリートメント込み</small></div>
-        <div class="menu-slash"></div>
         <div class="menu-price">¥18,000</div>
       </div>
       <div class="menu-item">
         <div class="menu-name">ワンメイクカラー<small>白髪一色染め</small></div>
-        <div class="menu-slash"></div>
         <div class="menu-price">¥5,000</div>
       </div>
       <div class="menu-item">
         <div class="menu-name">ヘアマニュキュア</div>
-        <div class="menu-slash"></div>
         <div class="menu-price">¥6,000</div>
       </div>
       <div class="menu-item">
         <div class="menu-name">ストレートパーマ<small>カット＋トリートメント込み</small></div>
-        <div class="menu-slash"></div>
         <div class="menu-price">¥20,000</div>
       </div>
       <div class="menu-item">
         <div class="menu-name">頭皮トリートメント</div>
-        <div class="menu-slash"></div>
         <div class="menu-price">¥2,000</div>
       </div>
       <div class="menu-item">
         <div class="menu-name">ショートスパ</div>
-        <div class="menu-slash"></div>
         <div class="menu-price">¥5,000</div>
       </div>
     </div>
@@ -452,11 +388,10 @@
         <dt>定休日</dt>
         <dd>水曜日</dd>
 
-
         <dt>予約方法</dt>
         <dd>
           完全予約制
-          <small>Instagram DM にてご予約ください</small>
+          <small>公式LINE よりご予約ください</small>
         </dd>
 
         <dt>Instagram</dt>
@@ -464,7 +399,6 @@
              style="color:var(--gold);">@bin_menscutsalon</a></dd>
       </dl>
     </div>
-
   </div>
 </section>
 
@@ -474,14 +408,13 @@
     <p class="sec-en">Reservation</p>
     <h2 class="sec-title">ご予約・お問い合わせ</h2>
     <div class="sec-rule"></div>
-    <p class="reserve-lead">完全予約制 ― Instagram DM にてお気軽にご連絡ください</p>
-    <a href="https://www.instagram.com/bin_menscutsalon/" target="_blank" class="reserve-btn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <circle cx="12" cy="12" r="4.5"/>
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    <p class="reserve-lead">完全予約制 ― 公式LINE よりお気軽にご連絡ください</p>
+    <a href="https://lin.ee/7A00Zwe" target="_blank" class="reserve-btn">
+      <!-- LINE アイコン -->
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.02 2 11c0 3.07 1.6 5.8 4.1 7.57V22l3.3-1.82A10.7 10.7 0 0 0 12 20.2c5.52 0 10-4.02 10-9.1C22 6.02 17.52 2 12 2zm-4 11.5H6.5v-5H8v3.5h2v1.5zm3 0h-1.5v-5H11v5zm5.5 0h-1.5l-2-3v3H11.5v-5H13l2 3v-3h1.5v5z"/>
       </svg>
-      Instagram で予約する
+      LINE で予約する
     </a>
   </div>
 </div>
